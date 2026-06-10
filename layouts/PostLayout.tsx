@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog, 作者 } from 'contentlayer/generated'
+import type { Blog, Authors } from 'contentlayer/generated'
 import Comments from '@/components/Comments'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
@@ -23,7 +23,7 @@ const postDateTemplate: Intl.DateTimeFormatOptions = {
 
 interface LayoutProps {
   content: CoreContent<Blog>
-  authorDetails: CoreContent<作者>[]
+  authorDetails: CoreContent<Authors>[]
   next?: { path: string; title: string }
   prev?: { path: string; title: string }
   children: ReactNode
@@ -37,13 +37,13 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
     <SectionContainer>
       <ScrollTopAndComment />
       <article>
-        <div class姓名="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
-          <header class姓名="pt-6 xl:pb-6">
-            <div class姓名="space-y-1 text-center">
-              <dl class姓名="space-y-10">
+        <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
+          <header className="pt-6 xl:pb-6">
+            <div className="space-y-1 text-center">
+              <dl className="space-y-10">
                 <div>
-                  <dt class姓名="sr-only">发布于</dt>
-                  <dd class姓名="text-base leading-6 font-medium text-gray-500 dark:text-gray-400">
+                  <dt className="sr-only">发布于</dt>
+                  <dd className="text-base leading-6 font-medium text-gray-500 dark:text-gray-400">
                     <time dateTime={date}>
                       {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
                     </time>
@@ -55,31 +55,31 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </div>
             </div>
           </header>
-          <div class姓名="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0 dark:divide-gray-700">
-            <dl class姓名="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
-              <dt class姓名="sr-only">作者</dt>
+          <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0 dark:divide-gray-700">
+            <dl className="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
+              <dt className="sr-only">作者</dt>
               <dd>
-                <ul class姓名="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-y-8 xl:space-x-0">
+                <ul className="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-y-8 xl:space-x-0">
                   {authorDetails.map((author) => (
-                    <li class姓名="flex items-center space-x-2" key={author.name}>
+                    <li className="flex items-center space-x-2" key={author.name}>
                       {author.avatar && (
                         <Image
                           src={author.avatar}
                           width={38}
                           height={38}
                           alt="avatar"
-                          class姓名="h-10 w-10 rounded-full"
+                          className="h-10 w-10 rounded-full"
                         />
                       )}
-                      <dl class姓名="text-sm leading-5 font-medium whitespace-nowrap">
-                        <dt class姓名="sr-only">姓名</dt>
-                        <dd class姓名="text-gray-900 dark:text-gray-100">{author.name}</dd>
-                        <dt class姓名="sr-only">Twitter</dt>
+                      <dl className="text-sm leading-5 font-medium whitespace-nowrap">
+                        <dt className="sr-only">姓名</dt>
+                        <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
+                        <dt className="sr-only">Twitter</dt>
                         <dd>
                           {author.twitter && (
                             <Link
                               href={author.twitter}
-                              class姓名="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                              className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                             >
                               {author.twitter
                                 .replace('https://twitter.com/', '@')
@@ -93,9 +93,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 </ul>
               </dd>
             </dl>
-            <div class姓名="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700">
-              <div class姓名="prose dark:prose-invert max-w-none pt-10 pb-8">{children}</div>
-              <div class姓名="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
+            <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700">
+              <div className="prose dark:prose-invert max-w-none pt-10 pb-8">{children}</div>
+              <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
                 <Link href={discussUrl(path)} rel="nofollow">
                   在 X 上讨论
                 </Link>
@@ -104,7 +104,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </div>
               {siteMetadata.comments && (
                 <div
-                  class姓名="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
+                  className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
                   id="comment"
                 >
                   <Comments slug={slug} />
@@ -112,13 +112,13 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               )}
             </div>
             <footer>
-              <div class姓名="divide-gray-200 text-sm leading-5 font-medium xl:col-start-1 xl:row-start-2 xl:divide-y dark:divide-gray-700">
+              <div className="divide-gray-200 text-sm leading-5 font-medium xl:col-start-1 xl:row-start-2 xl:divide-y dark:divide-gray-700">
                 {tags && (
-                  <div class姓名="py-4 xl:py-8">
-                    <h2 class姓名="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                  <div className="py-4 xl:py-8">
+                    <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
                       标签
                     </h2>
-                    <div class姓名="flex flex-wrap">
+                    <div className="flex flex-wrap">
                       {tags.map((tag) => (
                         <Tag key={tag} text={tag} />
                       ))}
@@ -126,23 +126,23 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   </div>
                 )}
                 {(next || prev) && (
-                  <div class姓名="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
+                  <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
                     {prev && prev.path && (
                       <div>
-                        <h2 class姓名="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                        <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
                           上一篇
                         </h2>
-                        <div class姓名="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                        <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                           <Link href={`/${prev.path}`}>{prev.title}</Link>
                         </div>
                       </div>
                     )}
                     {next && next.path && (
                       <div>
-                        <h2 class姓名="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                        <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
                           下一篇
                         </h2>
-                        <div class姓名="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                        <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                           <Link href={`/${next.path}`}>{next.title}</Link>
                         </div>
                       </div>
@@ -150,10 +150,10 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   </div>
                 )}
               </div>
-              <div class姓名="pt-4 xl:pt-8">
+              <div className="pt-4 xl:pt-8">
                 <Link
                   href={`/${basePath}`}
-                  class姓名="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                   aria-label="返回博客"
                 >
                   &larr; 返回博客
