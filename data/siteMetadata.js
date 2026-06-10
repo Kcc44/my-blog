@@ -6,7 +6,7 @@ const siteMetadata = {
   description: '个人技术博客 — 记录算法、项目、论文与技术学习',
   language: 'zh-CN',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
+  siteUrl: 'https://my-blog.vercel.app',
   siteRepo: 'https://github.com/Kcc44/my-blog',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
