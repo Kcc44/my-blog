@@ -48,3 +48,30 @@ Each dynamic route must export `generateStaticParams`. `next.config.js` has `tra
 - `.github/workflows/pages.yml` — auto-deploy on push to `main`
 
 **Writing new blog posts**: Create `data/blog/<slug>.mdx` with frontmatter (`title`, `date`, `tags`, `summary`). Push to `main` — GitHub Actions deploys automatically.
+
+## Giscus Comments
+
+Configured via 4 `NEXT_PUBLIC_GISCUS_*` env vars in both `.env.local` (local dev, gitignored) and `.github/workflows/pages.yml` (production build). Provider and settings in `data/siteMetadata.js` → `comments.giscusConfig`. Comment UI rendered by `components/Comments.tsx` inside `layouts/PostSimple.tsx`.
+
+To disable: set `comments.provider` to empty string in `data/siteMetadata.js`.
+
+## Static Files & Gitignore Trap
+
+`.gitignore` line 23 (`*.xml`) ignores ALL XML files. When adding verification files (Bing, Google) to `public/`, use `git add -f public/SomeFile.xml` — otherwise silently not deployed.
+
+## SEO & Search Engines
+
+- **Bing**: Verified. Sitemap at `sitemap.xml`. Manage at [Bing Webmaster Tools](https://www.bing.com/webmasters).
+- **Google**: Not yet submitted. Needs [Google Search Console](https://search.google.com/search-console).
+- **Baidu**: Blocks GitHub Pages entirely.
+
+## Planned Expansion
+
+Evolving into a multi-functional personal site:
+- **Homepage**: Bubble-style dashboard (`components/BubbleDashboard.tsx`) with toggle to blog list
+- **Platform panels**: LeetCode (needs proxy/Vercel relay — no public API + CORS), Codeforces (public API, client-side fetch OK)
+- **Check-in heatmap**: Aggregate LeetCode/CF/blog activity into contribution grid
+- **Solution sync**: Build script to pull platform submissions → auto-generate MDX
+- **New planned dirs**: `app/dashboard/`, `lib/` (API wrappers)
+
+Static export constraint: no API Routes. External data via build-time scripts or client-side fetch.

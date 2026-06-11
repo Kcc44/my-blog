@@ -1,7 +1,7 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: 'My Tech Blog',
-  author: '开发者',
+  author: 'K',
   headerTitle: 'Tech Blog',
   description: '个人技术博客 — 记录算法、项目、论文与技术学习',
   language: 'zh-CN',
@@ -11,7 +11,7 @@ const siteMetadata = {
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
   mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'address@yoursite.com',
+  email: '3242144486@qq.com',
   github: 'https://github.com/Kcc44',
   x: 'https://twitter.com/x',
   // twitter: 'https://twitter.com/Twitter',
