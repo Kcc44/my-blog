@@ -87,14 +87,8 @@ module.exports = () => {
       ],
       unoptimized,
     },
-    async headers() {
-      return [
-        {
-          source: '/(.*)',
-          headers: securityHeaders,
-        },
-      ]
-    },
+    // Headers via headers() not supported with static export (output: 'export').
+    // Security headers must be set at the web server/CDN level instead.
     webpack: (config, options) => {
       config.module.rules.push({
         test: /\.svg$/,
