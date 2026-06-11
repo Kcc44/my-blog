@@ -37,6 +37,10 @@ jobs:
           EXPORT: 1
           UNOPTIMIZED: 1
           BASE_PATH: /my-blog
+          NEXT_PUBLIC_GISCUS_REPO: Kcc44/my-blog
+          NEXT_PUBLIC_GISCUS_REPOSITORY_ID: R_kgDOS2n0sQ
+          NEXT_PUBLIC_GISCUS_CATEGORY: Announcements
+          NEXT_PUBLIC_GISCUS_CATEGORY_ID: DIC_kwDOS2n0sc4C-8Kr
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
